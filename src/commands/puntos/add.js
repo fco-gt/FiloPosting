@@ -13,10 +13,10 @@ module.exports = {
     const author = message.member;
 
     // ID for DB
-    let verde_id = '995446299077922836';
-    let azul_id = '995446608890175578';
-    let rojo_id = '995446813601583154';
-    let amarillo_id = '995446942127620106';
+    let verde_id = '';
+    let azul_id = '';
+    let rojo_id = '';
+    let amarillo_id = '';
 
     // Teams Bal
     let puntosVerde = await client.teamBal(verde_id);
@@ -25,19 +25,17 @@ module.exports = {
     let puntosAmarillo = await client.teamBal(amarillo_id);
 
     // Roles
-    let rol = message.guild.roles.cache.find(r => r.id === '995422094861012992');
-    let verde = message.guild.roles.cache.find(r => r.id === '995446299077922836');
-    let azul = message.guild.roles.cache.find(r => r.id === '995446608890175578');
-    let rojo = message.guild.roles.cache.find(r => r.id === '995446813601583154');
-    let amarillo = message.guild.roles.cache.find(r => r.id === '995446942127620106');
+    let rol = message.guild.roles.cache.find(r => r.id === '');
+    let verde = message.guild.roles.cache.find(r => r.id === '');
+    let azul = message.guild.roles.cache.find(r => r.id === '');
+    let rojo = message.guild.roles.cache.find(r => r.id === '');
+    let amarillo = message.guild.roles.cache.find(r => r.id === '');
 
     if (!author.roles.cache.has(rol.id)) return message.channel.send(":x:| No puedes utilizar este comando ya que no eres un tesorero del curso");
 
-    const emoji = '<:amogusexe:881577541838712872>';
+    const emoji = '';
 
     const puntos = args[0];
-
-    const razon = args.slice(2).join(" ") ? args.slice(2).join(" ") : "Razon sin especificar"
 
     const member = message.mentions.members.first() || client.users.cache.get(args[1]);
 

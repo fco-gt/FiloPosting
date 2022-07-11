@@ -10,9 +10,9 @@ module.exports = {
 
     const author = message.member;
 
-    const emoji = '<:amogusexe:881577541838712872>';
+    const emoji = '';
 
-    let rol = message.guild.roles.cache.find(r => r.id === '995422094861012992');
+    let rol = message.guild.roles.cache.find(r => r.id === '');
 
     if (!author.roles.cache.has(rol.id)) return message.channel.send(":x:| No puedes utilizar este comando por que no eres un tesorero del curso");
 

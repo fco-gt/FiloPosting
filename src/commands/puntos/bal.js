@@ -10,7 +10,7 @@ module.exports = {
 
     let usuario = message.mentions.users.first() || client.users.cache.get(args[0]) || message.author;
 
-    const emoji = '<:amogusexe:881577541838712872>';
+    const emoji = '';
 
     const bal = await client.bal(usuario.id);
 
