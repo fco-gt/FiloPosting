@@ -1,6 +1,6 @@
 // Client Configs
 const { MessageEmbed, Collection, Guild } = require('discord.js');
-const client = require("../bot");
+const client = require("../index");
 
 // Configs
 const Timeout = new Collection();

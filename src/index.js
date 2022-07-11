@@ -1,7 +1,7 @@
 const { Client, Discord, Collection, MessageEmbed } = require("discord.js");
 
 const client = new Client({
-    intents: 32767,
+  intents: 32767,
 });
 
 // Configs
@@ -13,14 +13,15 @@ module.exports = client;
 
 // Schemas
 const schema = require('./models/schema');
+const teams_schema = require('./models/teams');
 
 // Global Variables
 client.commands = new Collection();
 client.slashCommands = new Collection();;
 
-// Initial
+// Initializing the project
 require("./handler")(client); // Command Handler
-require('./configs/db'); // MongoDB
+require('./configs/db');
 
 // Points
 client.bal = (id) => new Promise(async ful => {
@@ -48,6 +49,37 @@ client.rmv = (id, coins) => {
       data.coins -= coins;
     } else {
       data = new schema({ id, coins: -coins })
+    }
+    data.save();
+  })
+}
+
+// Teams
+client.teamBal = (id) => new Promise(async ful => {
+  const data = await teams_schema.findOne({ id });
+  if (!data) return ful(0);
+  ful(data.coins);
+})
+
+client.teamAdd = (id, coins) => {
+  teams_schema.findOne({ id }, async (err, data) => {
+    if (err) throw err;
+    if (data) {
+      data.coins += coins;
+    } else {
+      data = new teams_schema({ id, coins })
+    }
+    data.save();
+  })
+}
+
+client.teamRemove = (id, coins) => {
+  teams_schema.findOne({ id }, async (err, data) => {
+    if(err) throw err;
+    if (data) {
+      data.coins -= coins;
+    } else {
+      data = new teams_schema({ id, coins: -coins })
     }
     data.save();
   })
