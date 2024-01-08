@@ -14,7 +14,7 @@ module.exports = {
 
     let rol = message.guild.roles.cache.find(r => r.id === '');
 
-    if (!author.roles.cache.has(rol.id)) return message.channel.send(":x:| No puedes utilizar este comando por que no eres un tesorero del curso");
+    if (!author.roles.cache.has(rol.id)) return message.channel.send(":x:| No puedes utilizar este comando por que no eres un tesorero");
 
     const member = message.mentions.members.first();
 
