@@ -1,7 +1,7 @@
 const mongo = require('mongoose');
 
 module.exports = mongo.model(
-    'Money', 
+    'Points', 
     new mongo.Schema({
         id: String,
         coins: Number
