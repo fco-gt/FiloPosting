@@ -27,28 +27,28 @@ require('./configs/db');
 client.bal = (id) => new Promise(async ful => {
   const data = await schema.findOne({ id });
   if (!data) return ful(0);
-  ful(data.coins);
+  ful(data.points);
 })
 
-client.add = (id, coins) => {
+client.add = (id, points) => {
   schema.findOne({ id }, async (err, data) => {
     if (err) throw err;
     if (data) {
-      data.coins += coins;
+      data.points += points;
     } else {
-      data = new schema({ id, coins })
+      data = new schema({ id, points })
     }
     data.save();
   })
 }
 
-client.rmv = (id, coins) => {
+client.rmv = (id, points) => {
   schema.findOne({ id }, async (err, data) => {
     if (err) throw err;
     if (data) {
-      data.coins -= coins;
+      data.points -= points;
     } else {
-      data = new schema({ id, coins: -coins })
+      data = new schema({ id, points: -points })
     }
     data.save();
   })
