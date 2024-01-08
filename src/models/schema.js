@@ -4,6 +4,6 @@ module.exports = mongo.model(
     'Points', 
     new mongo.Schema({
         id: String,
-        coins: Number
+        points: Number
     })
 )
