@@ -13,6 +13,7 @@ module.exports = {
     const author = message.member;
 
     // ID for DB
+    // Aqui deben ir las id de cada rol correspondiente
     let verde_id = '';
     let azul_id = '';
     let rojo_id = '';
@@ -31,7 +32,7 @@ module.exports = {
     let rojo = message.guild.roles.cache.find(r => r.id === '');
     let amarillo = message.guild.roles.cache.find(r => r.id === '');
 
-    if (!author.roles.cache.has(rol.id)) return message.channel.send(":x:| No puedes utilizar este comando ya que no eres un tesorero del curso");
+    if (!author.roles.cache.has(rol.id)) return message.channel.send(":x:| No puedes utilizar este comando ya que no eres un tesorero");
 
     const emoji = '';
 
